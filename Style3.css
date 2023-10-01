@@ -1,0 +1,163 @@
+body, p {
+    margin: 0px;
+    padding: 0px;
+    list-style: none; /* tira a bolinha da lista*/
+    font-size: 1.2rem;
+    background-color: rgb(105, 16, 16);
+    font-family:  "Montserrat";
+    background-image: url('Imagens/imagem4.jpg');
+    background-size: cover; /* Redimensiona a imagem para cobrir a área da navegação */
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semi-transparente (aqui, 0.5 define a opacidade) */
+    z-index: -1; /* Coloque a sobreposição atrás da imagem de fundo */
+}
+
+.logo{
+    width: 40%;
+    height: 40%;
+}
+
+ul, li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none; /* tira a bolinha da lista*/
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none; /*Tira a linha em baixo do link*/
+    color: white;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-family: "Montserrat";
+}
+
+img {
+    max-width: 100%; /*Imagens vão aumentar só igual ao maximo do tamanho do container*/
+    display: block;
+}
+
+.header {
+    background-color: #1d1e20;
+    display: flex; /*Deixa os itens desse grupo lado a lado*/
+    flex-wrap: wrap; /*Quando a tela for melhor vai alinhar um abaixo do outro*/
+    justify-content: space-between; /*Espaço entre os elemntos*/
+    padding: 20px; /*distância dos cantos*/
+    align-items: center; /*Alinha os itens de forma centralizada*/
+    border-bottom: 4px solid white;
+    background-image: url('Imagens/imagem10.jpg');
+    background-size: cover; /* Redimensiona a imagem para cobrir a área da navegação */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    
+    background-color: transparent; /* Torna o plano de fundo transparente para que a imagem seja visível */
+}
+
+.menu {
+    display: flex; /*Deixa os itens desse grupo lado a lado*/
+
+}
+
+.menu li {
+    margin-left: 10px; /* Cria uma margem entre os itens*/
+}
+
+.menu li a {
+    display: block;
+    padding: 10px;
+}
+
+.container {
+    
+             text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            
+            border-radius: 5px;
+            
+            gap: 50px;
+}
+
+select, input, button {
+    margin: 10px;
+    padding: 5px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+
+/* Adicione esta regra para o fundo da seção de resultado */
+.resultado-bg {
+    
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Estilos CSS para a barra de vida */
+.barra-de-vida {
+    width: 70%;
+    height: 20px;
+    border: 1px solid #000;
+    background-color: #ccc;
+    position: relative;
+}
+
+.vida-atual {
+    height: 100%;
+    width: 100%;
+    background-color: #4CAF50;
+}
+
+/* Estilos CSS para o botão */
+#botao-somar {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.divlife {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1d1e20;
+    padding: 20px;
+    border-radius: 50px;
+    border: 3px solid white;
+}
+
+.divataque {
+    background-color: #1d1e20;
+    padding: 20px;
+    border-radius: 50px;
+    border: 3px solid white;
+}
+
+/* Estilos CSS para a imagem */
+#imagem {
+    position: absolute;
+    top: 380px;
+    left: 150px;
+    z-index: 1; /* Define a ordem de empilhamento para que a imagem fique por cima das divs */
+    width: 1000px; /* Defina a largura desejada */
+    height: auto; /* Deixe a altura como 'auto' para manter a proporção original */
+}

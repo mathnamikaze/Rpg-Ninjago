@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Ficha Ninja</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="/">Logo</a>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">Pdf</a></li>
+                <li><a href="/">Ficha</a></li>    
+                <li><a href="/">Batalha</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Ficha Ninja</h1>
+
+    <!--LOCAL DE SELEÇÂO DE IMAGEM DE PERFIL-->
+    <div class="image-container">
+        <div class="image-circle" id="selected-image">
+            <img src="Imagens/imagem1.jpg" alt="Imagem 1" id="image" />
+        </div>
+    </div>
+    <div class="image-select">
+        <select id="image-select" onchange="changeImage()">
+            <option value="Imagens/imagem1.jpg">Imagem 1</option>
+            <option value="imagem2.jpg">Imagem 2</option>
+            <option value="imagem3.jpg">Imagem 3</option>
+        </select>
+    </div>
+    <!--Containers preenchiveis de Nome, Classe Vida-->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <label for="campo1">Nome</label>
+                <input type="text" id="campo1" class="nome">
+            </div>
+            <div class="input-wrapper">
+                <label for="campo2">Classe</label>
+                <input type="text" id="campo2" class="classe" list="ninjas">
+                <datalist id="ninjas">
+                    <option value="Ninja do Fogo">
+                    <option value="Ninja do Raio">
+                    <option value="Ninja do Gelo">
+                    <option value="Ninja da Terra">
+                    <option value="Ninja Verde">
+                    <option value="Ninja d'água">
+                    <option value="Samurai">
+                </datalist>
+            </div>
+            <div class="input-wrapper">
+                <label for="campo3">Vida</label>
+                <input type="text" id="campo3" class="vida">
+            </div>
+        </div>
+
+    <section class="boxs">
+
+        <div class="atributos">
+            <div class="circulos2">
+                <div class="circle-container">
+                    <div class="circle">
+                        <span class="atk-label">FOR</span>
+                        <input type="text" class="circle-input" value="8" inputmode="numeric" id="input1" oninput="calcularResultado()" >
+                    </div>
+                    <div class="circle">
+                        <span class="atk-label">DEZ</span>
+                        <input type="text" class="circle-input" value="8" inputmode="numeric" id="input1" oninput="calcularResultado()">
+                    </div>
+                    <div class="circle">
+                        <span class="atk-label">CON</span>
+                        <input type="text" class="circle-input" value="8" inputmode="numeric" id="input1" oninput="calcularResultado()">
+                    </div>
+                    <div class="circle">
+                        <span class="atk-label">INT</span>
+                        <input type="text" class="circle-input" value="8" inputmode="numeric" id="input1" oninput="calcularResultado()">
+                    </div>
+                    <div class="circle">
+                        <span class="atk-label">SAB</span>
+                        <input type="text" class="circle-input" value="8" inputmode="numeric" id="input1" oninput="calcularResultado()">
+                    </div>
+                    <div class="circle">
+                        <span class="atk-label">CAR</span>
+                        <input type="text" class="circle-input" value="8" inputmode="numeric" id="input1" oninput="calcularResultado()">
+                    </div>
+                </div>   
+                <!--CONTAINERS DOS MODIFICADORES-->
+                <div class="circle-column">
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" inputmode="numeric" id="input2"  readonly>
+                    </div>
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" inputmode="numeric" id="input2"  readonly>
+                    </div>
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" inputmode="numeric" id="input2"  readonly>
+                    </div>
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" inputmode="numeric" id="input2"  readonly>
+                    </div>
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" inputmode="numeric" id="input2"  readonly>
+                    </div>
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" inputmode="numeric" id="input2"  readonly>
+                    </div>
+                </div>
+            </div>
+
+                <div class="classes">
+                    <p>Subclasse</p>
+                    <input type="text" name="" id="class" list="subclasse">
+                        <datalist id="subclasse">
+                            <option value="Nindroide">
+                            <option value="Treinador de Dragões">
+                            <option value="Mestre das Armas">
+                            <option value="Oni">
+                        </datalist>
+                    <div class="square3"></div>
+                </div>
+
+                <div class="rolagem">
+                    <div class="dados">
+                        <div class="dados2">
+                            <div>
+                            <h1 class="rolagemd">Rolar Dados</h1>
+                            </div>
+                            <div>
+                            <select id="tipo-dado">
+                                <option value="d4">1d4</option>
+                                <option value="d6">1d6</option>
+                                <option value="d10">1d10</option>
+                                <option value="d12">1d12</option>
+                                <option value="d20">1d20</option>
+                                <option value="d100">1d100</option>
+                            </select>
+                            </div>
+                            <div>
+                            <label for="modificador" class="modificador">Modificador:</label>
+                            </div>
+                            <input type="number" id="modificador" value="0" class="resultados">
+                        </div>
+                            <div>
+                            <button id="rolar" class="rolardado">Rolar Dados</button>
+                            </div>
+                            <div>
+                            <div id="resultado"></div>
+                            </div>
+                    </div>
+                </div>
+            
+        </div>
+
+        <div class="quadrado-grande">
+            <div class="quadradop1">
+                <div class="bases">
+                    <p>Controle Elemental</p>
+                    <div class="square" id="controle"></div>
+                </div>
+                <div class="bases">
+                    <p>Habilidades</p>
+                    <div class="square" id="retangulo"></div>
+                </div>
+            </div> 
+            <div class="quadradop2"> 
+                <div class="bases">
+                    <p>Dragão</p>
+                    <div class="square" id="dragao"></div>
+                </div>
+                <div class="bases">
+                    <p>Spinjitzu</p>
+                    <div class="square" id="spinjitzu"></div>
+                </div>
+            </div>     
+            <div class="quadradop3">    
+                <div class="bases">
+                    <p>Talentos</p>
+                    <div class="square2" id="talento"> 
+                        <div class="squarett">                  
+                        <input type="text" id="talentos" list="talentos1">
+                            <datalist id="talentos1">
+                                <option value="Sortudo">
+                                <option value="Velocista">
+                                <option value="Combo Ninja">
+                                <option value="Mestre Elemental">
+                                <option value="Rei do Spinjitzu">
+                                <option value="Mestre de Armas">
+                                <option value="Domador de Feras">
+                                <option value="Ninja de Verdade">
+                                <option value="Aluno Exemplar">
+                                <option value="Força Bruta">
+                                <option value="Empunhadura Dupla">
+                            </datalist>
+                            <div class="squaret" id="squaret1">
+                            </div>
+                        </div> 
+                        <div class="squarett"> 
+                        <input type="text" id="talentosd" list="talentos2">
+                            <datalist id="talentos2">
+                                <option value="Sortudo">
+                                <option value="Velocista">
+                                <option value="Combo Ninja">
+                                <option value="Mestre Elemental">
+                                <option value="Rei do Spinjitzu">
+                                <option value="Mestre de Armas">
+                                <option value="Domador de Feras">
+                                <option value="Ninja de Verdade">
+                                <option value="Aluno Exemplar">
+                                <option value="Força Bruta">
+                                <option value="Empunhadura Dupla">
+                            </datalist>
+                            <div class="squaret" id="squaret2">
+                            </div>
+                        </div>
+                        <di class="squarett">
+                        <input type="text" id="talentosdd" list="talentos3">
+                            <datalist id="talentos3">
+                                <option value="Sortudo">
+                                <option value="Velocista">
+                                <option value="Combo Ninja">
+                                <option value="Mestre Elemental">
+                                <option value="Rei do Spinjitzu">
+                                <option value="Mestre de Armas">
+                                <option value="Domador de Feras">
+                                <option value="Ninja de Verdade">
+                                <option value="Aluno Exemplar">
+                                <option value="Força Bruta">
+                                <option value="Empunhadura Dupla">
+                            </datalist>
+                            <div class="squaret" id="squaret3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+<script>
+    function changeImage() {
+        var imageSelect = document.getElementById("image-select");
+        var selectedImage = document.getElementById("selected-image");
+        var image = document.getElementById("image");
+
+        var selectedOption = imageSelect.options[imageSelect.selectedIndex];
+        var selectedValue = selectedOption.value;
+
+        // Altera a imagem no círculo selecionado
+        image.src = selectedValue;
+    }
+
+    function calcularResultado() {
+    const inputs = document.querySelectorAll('.circle-input');
+    const results = document.querySelectorAll('.circle-input-second');
+
+    inputs.forEach((input, index) => {
+        const valor1 = parseInt(input.value);
+        const resultado = Math.floor((valor1 - 10) / 2);
+
+        results[index].value = resultado;
+
+        // Definir a cor do texto com base no valor do resultado
+        if (resultado < 0) {
+            results[index].style.color = 'red';
+        } else if (resultado >= 0 && resultado <= 4) {
+            results[index].style.color = 'green';
+        } else {
+            results[index].style.color = 'gold';
+        }
+    });
+}
+
+// Calcular o resultado quando a página for carregada
+window.addEventListener('load', function () {
+    calcularResultado();
+});
+
+// Adicione um ouvinte de evento de entrada para recalcular quando os valores mudarem
+const inputs = document.querySelectorAll('.circle-input');
+inputs.forEach(input => {
+    input.addEventListener('input', calcularResultado);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const botaoRolar = document.getElementById("rolar");
+    const modificadorInput = document.getElementById("modificador");
+    const resultado = document.getElementById("resultado");
+    const tipoDadoSelect = document.getElementById("tipo-dado");
+
+    botaoRolar.addEventListener("click", function () {
+        const tipoDado = tipoDadoSelect.value; // Obtém o tipo de dado selecionado
+
+        // Função para rolar o dado selecionado
+        function rolarDado(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        let resultadoFinal = 0;
+
+        switch (tipoDado) {
+            case "d4":
+                resultadoFinal = rolarDado(1, 4);
+                break;
+            case "d6":
+                resultadoFinal = rolarDado(1, 6);
+                break;
+            case "d10":
+                resultadoFinal = rolarDado(1, 10);
+                break;
+            case "d12":
+                resultadoFinal = rolarDado(1, 12);
+                break;
+            case "d20":
+                resultadoFinal = rolarDado(1, 20);
+                break;
+            case "d100":
+                resultadoFinal = rolarDado(1, 100);
+                break;
+        }
+
+        // Obtenha o modificador do input
+        const modificador = parseInt(modificadorInput.value) || 0;
+
+        // Calcule a soma dos resultados com o modificador
+        resultadoFinal += modificador;
+
+        // Exiba o resultado
+        resultado.textContent = `Resultado: ${resultadoFinal}`;
+    });
+});
+
+// Selecione o campo de entrada "Classe" e a div "retangulo"
+const classeInput = document.getElementById("campo2");
+const retanguloDiv = document.getElementById("retangulo"); // Alterado para usar getElementById
+
+// Defina um ouvinte de evento para o campo "Classe"
+classeInput.addEventListener("change", function () {
+    // Obtenha o valor selecionado no campo "Classe"
+    const classeSelecionada = classeInput.value;
+
+    // Atualize o conteúdo da div "retangulo" com base na classe selecionada
+    switch (classeSelecionada) {
+        case "Ninja do Fogo":
+            retanguloDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px;'><b>Espadachim:</b> +2 em rolagens de ataques com espada.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px;'><b>Ninja do Fogo:</b> Recebe metade do dano de ataques de fogo.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px;'><b>Ferreiro:</b> +5 em rolagens de criação e restauração de equipamentos.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px;'><b>Alma Ardente:</b> +6 de dano quando estiver com metade da vida ou menos.</p>";
+            break;
+        case "Ninja do Raio":
+            retanguloDiv.innerHTML = "Você escolheu a classe Ninja do Raio. Esta classe é especializada em habilidades de raio.";
+            break;
+        case "Ninja do Gelo":
+            retanguloDiv.innerHTML = "Você escolheu a classe Ninja do Gelo. Esta classe é especializada em habilidades de gelo.";
+            break;
+        case "Ninja da Terra":
+            retanguloDiv.innerHTML = "Você escolheu a classe Ninja da Terra. Esta classe é especializada em habilidades de terra.";
+            break;
+        case "Ninja Verde":
+            retanguloDiv.innerHTML = "Você escolheu a classe Ninja Verde. Esta classe é especializada em habilidades de natureza.";
+            break;
+        case "Ninja d'água":
+            retanguloDiv.innerHTML = "Você escolheu a classe Ninja d'água. Esta classe é especializada em habilidades de água.";
+            break;
+        case "Samurai":
+            retanguloDiv.innerHTML = "Você escolheu a classe Samurai. Esta classe é especializada em artes marciais e honra.";
+            break;
+        default:
+            retanguloDiv.innerHTML = "Escolha uma classe para exibir informações.";
+            break;
+    }
+});
+
+ // Selecione o campo de entrada e a div de controle
+ const campoInput = document.getElementById("campo2");
+        const controleDiv = document.getElementById("controle");
+
+        // Defina um ouvinte de evento para o campo de entrada
+        campoInput.addEventListener("input", function () {
+            // Obtenha o valor selecionado no campo de entrada
+            const classeSelecionada = campoInput.value;
+
+            // Atualize o conteúdo da div de controle com base na classe selecionada
+            switch (classeSelecionada) {
+                case "Ninja do Fogo":
+                    controleDiv.innerHTML = "<p>Conteúdo da Ninja do Fogo.</p>";
+                    break;
+                case "Ninja do Raio":
+                    controleDiv.innerHTML = "<p>Conteúdo da Ninja do Raio.</p>";
+                    break;
+                case "Ninja do Gelo":
+                    controleDiv.innerHTML = "<p>Conteúdo da Ninja do Gelo.</p>";
+                    break;
+                case "Ninja da Terra":
+                    controleDiv.innerHTML = "<p>Conteúdo da Ninja da Terra.</p>";
+                    break;
+                case "Ninja Verde":
+                    controleDiv.innerHTML = "<p>Conteúdo da Ninja Verde.</p>";
+                    break;
+                case "Ninja d'água":
+                    controleDiv.innerHTML = "<p>Conteúdo da Ninja d'água.</p>";
+                    break;
+                case "Samurai":
+                    controleDiv.innerHTML = "<p>Conteúdo do Samurai.</p>";
+                    break;
+                default:
+                    controleDiv.innerHTML = "<p>Escolha uma classe para exibir o conteúdo.</p>";
+                    break;
+            }
+        });
+
+        // Selecione o campo de entrada e a div "dragao"
+        const dragaoInput = document.getElementById("campo2");
+        const dragaoDiv = document.getElementById("dragao");
+
+        // Defina um ouvinte de evento para o campo de entrada
+        campoInput.addEventListener("input", function () {
+            // Obtenha o valor selecionado no campo de entrada
+            const classeSelecionada = campoInput.value;
+
+            // Atualize o conteúdo da div "dragao" com base na classe selecionada
+            switch (classeSelecionada) {
+                case "Ninja do Fogo":
+                    dragaoDiv.innerHTML = "<p>Conteúdo da Ninja do Fogo para dragão.</p>";
+                    break;
+                case "Ninja do Raio":
+                    dragaoDiv.innerHTML = "<p>Conteúdo da Ninja do Raio para dragão.</p>";
+                    break;
+                case "Ninja do Gelo":
+                    dragaoDiv.innerHTML = "<p>Conteúdo da Ninja do Gelo para dragão.</p>";
+                    break;
+                case "Ninja da Terra":
+                    dragaoDiv.innerHTML = "<p>Conteúdo da Ninja da Terra para dragão.</p>";
+                    break;
+                case "Ninja Verde":
+                    dragaoDiv.innerHTML = "<p>Conteúdo da Ninja Verde para dragão.</p>";
+                    break;
+                case "Ninja d'água":
+                    dragaoDiv.innerHTML = "<p>Conteúdo da Ninja d'água para dragão.</p>";
+                    break;
+                case "Samurai":
+                    dragaoDiv.innerHTML = "<p>Conteúdo do Samurai para dragão.</p>";
+                    break;
+                default:
+                    dragaoDiv.innerHTML = "<p>Escolha uma classe para exibir o conteúdo.</p>";
+                    break;
+            }
+        });
+
+        // Selecione o campo de entrada e a div "spinjitzu"
+        const spinInput = document.getElementById("campo2");
+        const spinjitzuDiv = document.getElementById("spinjitzu");
+
+        // Defina um ouvinte de evento para o campo de entrada
+        campoInput.addEventListener("input", function () {
+            // Obtenha o valor selecionado no campo de entrada
+            const classeSelecionada = campoInput.value;
+
+            // Atualize o conteúdo da div "spinjitzu" com base na classe selecionada
+            switch (classeSelecionada) {
+                case "Ninja do Fogo":
+                    spinjitzuDiv.innerHTML = "<p>Conteúdo da Ninja do Fogo para spinjitzu.</p>";
+                    break;
+                case "Ninja do Raio":
+                    spinjitzuDiv.innerHTML = "<p>Conteúdo da Ninja do Raio para spinjitzu.</p>";
+                    break;
+                case "Ninja do Gelo":
+                    spinjitzuDiv.innerHTML = "<p>Conteúdo da Ninja do Gelo para spinjitzu.</p>";
+                    break;
+                case "Ninja da Terra":
+                    spinjitzuDiv.innerHTML = "<p>Conteúdo da Ninja da Terra para spinjitzu.</p>";
+                    break;
+                case "Ninja Verde":
+                    spinjitzuDiv.innerHTML = "<p>Conteúdo da Ninja Verde para spinjitzu.</p>";
+                    break;
+                case "Ninja d'água":
+                    spinjitzuDiv.innerHTML = "<p>Conteúdo da Ninja d'água para spinjitzu.</p>";
+                    break;
+                case "Samurai":
+                    spinjitzuDiv.innerHTML = "<p>Conteúdo do Samurai para spinjitzu.</p>";
+                    break;
+                default:
+                    spinjitzuDiv.innerHTML = "<p>Escolha uma classe para exibir o conteúdo.</p>";
+                    break;
+            }
+        });
+
+// Selecione o elemento de campo de entrada
+const talentosInput = document.getElementById("talentos");
+
+// Selecione a div que você deseja atualizar
+const squaret1Div = document.getElementById("squaret1");
+
+// Adicione um ouvinte de evento para detectar mudanças no campo de entrada
+talentosInput.addEventListener("input", function() {
+    // Obtenha o valor inserido no campo de entrada
+    const talentoSelecionado = talentosInput.value;
+
+    // Defina as diferentes respostas com base no talento selecionado
+    let resposta = "";
+
+    switch (talentoSelecionado) {
+        case "Sortudo":
+            resposta = "Você é muito sortudo!";
+            break;
+        case "Velocista":
+            resposta = "Você é incrivelmente rápido!";
+            break;
+        case "Combo Ninja":
+            resposta = "Seus combos ninja são imbatíveis!";
+            break;
+        // Adicione mais casos para outras opções aqui
+        default:
+            resposta = "Escolha uma opção de talento para exibir informações.";
+            break;
+    }
+
+    // Atualize o conteúdo da div com base na resposta
+    squaret1Div.innerHTML = resposta;
+});
+
+// Função para atualizar o conteúdo da div squaret2 com base na seleção
+function atualizarConteudoSquaret2() {
+            const div = document.getElementById("squaret2");
+            const talentoSelecionado = document.getElementById("talentosd").value;
+            let resposta = "";
+
+            switch (talentoSelecionado) {
+                case "Sortudo":
+                    resposta = "Você é muito sortudo!";
+                    break;
+                case "Velocista":
+                    resposta = "Você é incrivelmente rápido!";
+                    break;
+                case "Combo Ninja":
+                    resposta = "Seus combos ninja são imbatíveis!";
+                    break;
+                // Adicione mais casos conforme necessário
+                default:
+                    resposta = "Escolha uma opção para exibir o conteúdo.";
+                    break;
+            }
+
+            // Atualize o conteúdo da div squaret2 com base na seleção
+            div.textContent = resposta;
+        }
+
+        // Função para atualizar o conteúdo da div squaret3 com base na seleção
+        function atualizarConteudoSquaret3() {
+            const div = document.getElementById("squaret3");
+            const talentoSelecionado = document.getElementById("talentosdd").value;
+            let resposta = "";
+
+            switch (talentoSelecionado) {
+                case "Escolha 1":
+                    resposta = "Conteúdo da Escolha 1.";
+                    break;
+                case "Escolha 2":
+                    resposta = "Conteúdo da Escolha 2.";
+                    break;
+                case "Escolha 3":
+                    resposta = "Conteúdo da Escolha 3.";
+                    break;
+                // Adicione mais casos conforme necessário
+                default:
+                    resposta = "Escolha uma opção para exibir o conteúdo.";
+                    break;
+            }
+
+            // Atualize o conteúdo da div squaret3 com base na seleção
+            div.textContent = resposta;
+        }
+
+        // Selecione o campo de seleção talentosd
+        const talentosSelect = document.getElementById("talentosd");
+
+        // Adicione um ouvinte de evento para talentosd
+        talentosSelect.addEventListener("change", atualizarConteudoSquaret2);
+
+        // Selecione o campo de seleção talentosdd
+        const talentosddSelect = document.getElementById("talentosdd");
+
+        // Adicione um ouvinte de evento para talentosdd
+        talentosddSelect.addEventListener("change", atualizarConteudoSquaret3);
+
+        // Função para atualizar o conteúdo da div square3 com base na seleção
+        function atualizarConteudoSquare3() {
+            const div = document.querySelector(".square3");
+            const subclasseSelecionada = document.getElementById("class").value;
+            let resposta = "";
+
+            switch (subclasseSelecionada) {
+                case "Nindroide":
+                    resposta = "Você escolheu a subclasse Nindroide. Esta subclasse é especializada em tecnologia ninja.";
+                    break;
+                case "Treinador de Dragões":
+                    resposta = "Você escolheu a subclasse Treinador de Dragões. Esta subclasse é especializada em domar dragões.";
+                    break;
+                case "Mestre das Armas":
+                    resposta = "Você escolheu a subclasse Mestre das Armas. Esta subclasse é especializada em combate com várias armas.";
+                    break;
+                case "Oni":
+                    resposta = "Você escolheu a subclasse Oni. Esta subclasse é especializada em habilidades sombrias e mágicas.";
+                    break;
+                default:
+                    resposta = "Escolha uma subclasse para exibir o conteúdo.";
+                    break;
+            }
+
+            // Atualize o conteúdo da div square3 com base na seleção
+            div.textContent = resposta;
+        }
+
+        // Selecione o campo de entrada "class"
+        const classInput = document.getElementById("class");
+
+        // Adicione um ouvinte de evento para "class"
+        classInput.addEventListener("input", atualizarConteudoSquare3);
+    </script>
+
+</script>
+
+</html>

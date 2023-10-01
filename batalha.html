@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style3.css">
+    <title>Batalha</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="Index.html" class="logo"><img src="Imagens/Logo.png" alt="" class="logo"></a>
+        <nav>
+            <ul class="menu">
+                <li><a href="pdf.html">Pdf</a></li>
+                <li><a href="Index.html">Ficha</a></li>    
+                <li><a href="batalha.html">Batalha</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+     <div class="divataque">
+        <h1 style="color: white;">Rolagem de Ataque</h1>
+        
+        <div>
+            <label for="armas" style="font-weight: bold;">Escolha uma arma:</label>
+            <select id="armas">
+                <option value="4">Espada (1d6)</option>
+                <option value="6">Nunchaku (1d6)</option>
+                <option value="8">Arco e Flecha (1d6)</option>
+                <option value="10">Shurikens (2d4)</option>
+                <option value="10">Martelo (1d8)</option>
+                <option value="10">Foice (1d6)</option>
+                <option value="10">Lança (1d6)</option>
+                <option value="10">Lâmina Dupla (1d8)</option>
+                <option value="10">Sais (2d4)</option>
+                <option value="10">Espada Dourada (1d10)</option>
+                <option value="10">Nunchaku Dourado (1d10)</option>
+                <option value="10">Shurikens Douradas (3d4)</option>
+                <option value="10">Foice Dourada (1d1)</option>
+                <option value="10">Espada Samurai (2d6)</option>
+                <!-- Adicione mais opções de armas aqui -->
+            </select>
+        </div>
+    
+        <div>
+            <label for="modificador" style="font-weight: bold;">Modificador:</label>
+            <input type="number" id="modificador" value="0">
+        </div>
+
+        <button id="rolar" style="font-weight: bold;">Rolar Dados</button>
+
+        <div class="resultado-bg">
+            <label style="font-weight: bold;">Resultado da Rolagem:</label>
+            <div id="resultado" style="font-weight: bold; color: white;"></div>
+        </div>
+       </div>   
+
+        <div class="divlife">
+            <h1 style="color: white;">Barra de Vida</h1>
+            <div class="barra-de-vida">
+                <div class="vida-atual"></div>
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="vida"  style="font-weight: bold; padding-top: 10px;">Vida Total:</label>
+                <input type="number" id="vida" value="100" style="text-align: center;">
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <label for="dano"  style="font-weight: bold;">Dano Sofrido:</label>
+                <input type="number" id="dano" value="0" style="text-align: center;">
+            </div>
+            <button id="botao-somar"  style="font-weight: bold;">Somar</button>
+        </div>
+    </div>
+
+    <!-- Imagem PNG -->
+    <img id="imagem" src="Imagens/equipe.png" alt="Imagem PNG">
+      
+    <script>
+        document.getElementById('rolar').addEventListener('click', function() {
+            const armaSelecionada = document.getElementById('armas').value;
+            const modificador = parseInt(document.getElementById('modificador').value);
+            
+            const resultado = rolarDado(armaSelecionada) + modificador;
+            
+            document.getElementById('resultado').textContent = resultado;
+        });
+
+        function rolarDado(lados) {
+            return Math.floor(Math.random() * lados) + 1;
+        }
+
+// Seleciona os elementos HTML
+const vidaInput = document.getElementById("vida");
+        const danoInput = document.getElementById("dano");
+        const botaoSomar = document.getElementById("botao-somar");
+        const vidaAtual = document.querySelector(".vida-atual");
+
+        // Adiciona um ouvinte de evento para o botão de somar
+        botaoSomar.addEventListener("click", () => {
+            const vida = parseInt(vidaInput.value);
+            const dano = parseInt(danoInput.value);
+
+            // Calcula a nova vida após o dano
+            const novaVida = Math.max(0, vida - dano);
+
+            // Atualiza o valor da vida na primeira div
+            vidaInput.value = novaVida;
+
+            // Atualiza a largura da barra de vida
+            const larguraDaBarra = (novaVida / vida) * 100;
+            vidaAtual.style.width = larguraDaBarra + "%";
+        });
+
+    </script>
+    

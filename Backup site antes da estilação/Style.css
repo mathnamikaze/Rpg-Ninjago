@@ -1,0 +1,374 @@
+body, p {
+    margin: 0px;
+    padding: 0px;
+    list-style: none; /* tira a bolinha da lista*/
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(105, 16, 16);
+}
+
+ul, li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none; /* tira a bolinha da lista*/
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none; /*Tira a linha em baixo do link*/
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+img {
+    max-width: 100%; /*Imagens vão aumentar só igual ao maximo do tamanho do container*/
+    display: block;
+}
+
+.header {
+    background-color: #1d1e20;
+    display: flex; /*Deixa os itens desse grupo lado a lado*/
+    flex-wrap: wrap; /*Quando a tela for melhor vai alinhar um abaixo do outro*/
+    justify-content: space-between; /*Espaço entre os elemntos*/
+    padding: 20px; /*distância dos cantos*/
+    align-items: center; /*Alinha os itens de forma centralizada*/
+}
+
+.menu {
+    display: flex; /*Deixa os itens desse grupo lado a lado*/
+}
+
+.menu li {
+    margin-left: 10px; /* Cria uma margem entre os itens*/
+}
+
+.menu li a {
+    display: block;
+    padding: 10px;
+}
+
+.square {
+    width: 351px;
+    height: 351px;
+    background-color: aqua;
+    border: 1.5px solid black;
+}
+
+.squareatributos {
+    width: 351px;
+    height: 958px;
+    background-color: aqua;
+    border: 1.5px solid black;
+}
+
+.boxs {
+    display: flex; /* deixa os itens um do lado do outro*/
+    flex-wrap: wrap;
+    flex-direction: row;
+    border: 1.5px solid black;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px;
+    padding: 10px;
+}
+
+.quadrado-grande {
+    display: flex; /* deixa os itens um do lado do outro*/
+    flex-direction: column;
+    border: 1.5px solid black;
+    margin: 20px;
+}
+
+.quadradop1 {
+    display: flex; /* deixa os itens um do lado do outro*/
+    flex-direction: row;
+    border: 1.5px solid black;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.quadradop2 {
+    display: flex; /* deixa os itens um do lado do outro*/
+    flex-direction: row;
+    border: 1.5px solid black;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.quadradop3 {
+    display: flex; /* deixa os itens um do lado do outro*/
+    flex-direction: row;
+    border: 1.5px solid black;
+}
+
+.atributos{
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid black;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.boxs > div {
+    flex: 1 1 200px;
+
+}
+
+.square2 {
+    width: 732px;
+    height: 200px;
+    background-color: aqua;
+    border: 1.5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+}
+
+#talentos {
+    margin-top: 10px;
+}
+
+#talentosd {
+    margin-top: 10px;
+}
+
+#talentosdd {
+    margin-top: 10px;
+}
+
+.bases{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.squaret {
+    width: 224px;
+    height: 145px;
+    background-color: white;
+}
+
+.squarett {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*css dos circulos dos atributos e modificadores*/
+
+.circle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+    margin-left: 20px; /* Margem à esquerda para posicionar à esquerda */
+    
+}
+
+.circle {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: lightblue;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    
+    
+}
+
+.circle-input {
+    width: 100%;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: inherit;
+    background-color: transparent;
+}
+
+.circle-input-second {
+    width: 100%;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: inherit;
+    background-color: transparent;
+}
+
+.atk-label {
+    position: absolute;
+    top: -25px; /* Posição vertical acima do círculo */
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.circle-column {
+    display: flex;
+    flex-direction: column; /* Organizar os círculos em coluna */
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+input[type="text"] {
+    text-align: center; /* Centraliza horizontalmente o texto */
+    vertical-align: middle; /* Centraliza verticalmente o texto */
+}
+
+.circulos2 {
+    display: flex;
+    flex-direction: row;
+}
+
+/*quadrados da sub classe*/
+
+.classes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+#class {
+    width: 231px;
+}
+
+.square3 {
+    width: 351px;
+    height: 300px;
+    background-color: aqua;
+    border: 1.5px solid black;
+}
+
+.rolagem {
+    border: 1.5px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.dados2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.rolagemd {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.resultados {
+    width: 57px;
+}
+
+/* Vida classe Nome e Foto */
+
+.nome{
+    margin-right: 10px;
+}
+
+.vida{
+    margin-left: 10px;
+}
+
+.nomeseafins{
+    margin-top: 2px;
+    display: flex;
+    justify-content: center; /* Espaço uniforme entre os elementos */
+}
+
+.nomeh3{
+    margin-right: 140px;
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.classeh3{
+    justify-content: center;
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.vidah3{
+    margin-left: 140px;
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+   align-items: center;
+   margin-top: 20px;
+}
+
+.image-circle {
+   width: 150px;
+   height: 150px;
+   background-color: lightblue;
+   border-radius: 50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 5px;
+   overflow: hidden; /* Adicione esta linha */
+   }
+
+.image-circle img {
+           max-width: 100%;
+           max-height: 100%;
+           object-fit: cover;
+           border-radius: 50%; /* Adicione esta linha */
+}
+
+.image-select {
+           margin-top: 5px;
+           margin-bottom: 10px;
+           display: flex;
+   justify-content: center;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.input-wrapper {
+    text-align: center;
+    margin-bottom: 10px; /* Espaço entre cada campo */
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+

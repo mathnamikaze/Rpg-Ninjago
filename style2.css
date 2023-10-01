@@ -1,0 +1,197 @@
+body, p {
+    margin: 0px;
+    padding: 0px;
+    list-style: none; /* tira a bolinha da lista*/
+    font-size: 1.2rem;
+    background-color: rgb(105, 16, 16);
+    font-family:  "Montserrat";
+    background-image: url('Imagens/bg2.png');
+    background-size: cover; /* Redimensiona a imagem para cobrir a área da navegação */
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semi-transparente (aqui, 0.5 define a opacidade) */
+    z-index: -1; /* Coloque a sobreposição atrás da imagem de fundo */
+}
+
+.logo{
+    width: 40%;
+    height: 40%;
+}
+
+ul, li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none; /* tira a bolinha da lista*/
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none; /*Tira a linha em baixo do link*/
+    color: white;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-family: "Montserrat";
+}
+
+img {
+    max-width: 100%; /*Imagens vão aumentar só igual ao maximo do tamanho do container*/
+    display: block;
+}
+
+.header {
+    background-color: #1d1e20;
+    display: flex; /*Deixa os itens desse grupo lado a lado*/
+    flex-wrap: wrap; /*Quando a tela for melhor vai alinhar um abaixo do outro*/
+    justify-content: space-between; /*Espaço entre os elemntos*/
+    padding: 20px; /*distância dos cantos*/
+    align-items: center; /*Alinha os itens de forma centralizada*/
+    border-bottom: 4px solid white;
+    background-image: url('Imagens/imagem10.jpg');
+    background-size: cover; /* Redimensiona a imagem para cobrir a área da navegação */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    
+    background-color: transparent; /* Torna o plano de fundo transparente para que a imagem seja visível */
+}
+
+.menu {
+    display: flex; /*Deixa os itens desse grupo lado a lado*/
+
+}
+
+.menu li {
+    margin-left: 10px; /* Cria uma margem entre os itens*/
+}
+
+.menu li a {
+    display: block;
+    padding: 10px;
+}
+
+.pagina {
+    width: 600px;
+    height: 849px;
+    border: 5px solid;
+    border-color: rgb(105, 16, 16);
+    align-items: center;
+            justify-content: center;
+}
+
+.quadradog {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
+
+/**/
+
+/* Estilos para a imagem */
+.imagem-kaipng {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 999; /* Para garantir que a imagem fique acima do conteúdo principal */
+            width: 300px;
+            height: 300px;
+}
+
+.imagem {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.imagem-nyapng {
+    position: fixed;
+    bottom: 0;
+    right: -20px;
+    z-index: 999; /* Para garantir que a imagem fique acima do conteúdo principal */
+    max-height: 400px; /* Define a altura máxima como 100% da altura da tela */
+    max-width: 400px; /* Define a largura máxima como 100% da largura da tela */
+}
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+    margin-top: -30px;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px; /* Aumenta o espaço de preenchimento para torná-los maiores */
+    font-size: 28px; /* Aumenta o tamanho da fonte */
+    cursor: pointer;
+    margin: 0 20px; /* Aumenta o espaço entre os botões */
+    background-color: #1d1e20; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 50px; /* Adiciona cantos arredondados */
+    transition: background-color 0.3s ease; /* Adiciona uma transição de cor de fundo suave */
+    width: 20px;
+    height: 20px;
+}
+
+.botao:hover {
+    background-color: #0056b3; /* Cor de fundo quando o mouse passa por cima */
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+    /* Estilos para a imagem da Nya */
+    .imagem-nyapng {
+        position: fixed;
+        bottom: 0;
+        right: -10px;
+        z-index: 999; /* Para garantir que a imagem fique acima do conteúdo principal */
+    }
+
+   /* Estilos para o efeito de neve */
+   .snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Evitar que os flocos de neve interfiram com interações de clique */
+    z-index: -1; /* Coloca os flocos de neve atrás de todo o conteúdo */
+}
+
+/* Estilos para os flocos de neve */
+.snowflake {
+    position: absolute;
+    color: #fff; /* Cor dos flocos de neve */
+    font-size: 24px; /* Tamanho dos flocos de neve */
+}
+
+/* Animação de queda de neve */
+@keyframes snowfall {
+    0% {
+        transform: translateY(-10%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh); /* Deslocamento vertical */
+        opacity: 0; /* Desaparecer gradualmente */
+    }
+}

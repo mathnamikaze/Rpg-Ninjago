@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Pdf</title>
+</head>
+<body>
+    <header class="header">
+        <a href="/">Logo</a>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">Pdf</a></li>
+                <li><a href="/">Ficha</a></li>    
+                <li><a href="/">Batalha</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="quadradog">
+        <div class="pagina">
+            <img class="imagem" src="imgpdf/Capa.png" alt="Capa">
+        </div>
+    </div>
+    <div class="botoes">
+        <div class="botao" id="anterior">&lt;</div>
+        <div class="input-box">
+            <input type="number" id="numeroPagina" min="1" max="28" value="1" style="text-align: center;">
+            <button id="irParaPagina">Ir</button>
+        </div>
+        <div class="botao" id="proximo">&gt;</div>
+    </div>
+    
+    <!-- Div para a imagem PNG -->
+    <div class="imagem-kaipng">
+        <img src="Imagens/kaipng.png" alt="Kai">
+    </div>
+
+    <div class="imagem-nyapng">
+        <img src="Imagens/nyapng2.png" alt="Nya">
+    </div>
+
+    <!-- Divs para o efeito de neve -->
+    <div class="snow-container">
+        <!-- Flocos de neve individuais com animações separadas -->
+        <div class="snowflake" style="left: 10%; animation: snowfall 5s linear infinite;">❄️</div>
+        <div class="snowflake" style="left: 20%; animation: snowfall 4s linear infinite;">❄️</div>
+        <div class="snowflake" style="left: 30%; animation: snowfall 3s linear infinite;">❄️</div>
+        <div class="snowflake" style="left: 40%; animation: snowfall 5s linear infinite;">❄️</div>
+        <div class="snowflake" style="left: 50%; animation: snowfall 4s linear infinite;">❄️</div>
+        <div class="snowflake" style="left: 60%; animation: snowfall 3s linear infinite;">❄️</div>
+        <div class="snowflake" style="left: 70%; animation: snowfall 5s linear infinite;">❄️</div>
+        <div class="snowflake" style="left: 80%; animation: snowfall 4s linear infinite;">❄️</div>
+        <div class="snowflake" style="left: 90%; animation: snowfall 3s linear infinite;">❄️</div>
+        <div class="snowflake" style="left: 100%; animation: snowfall 3s linear infinite;">❄️</div>
+        <!-- Adicione quantos flocos de neve quiser -->
+    </div>
+
+    <script>
+        const imagens = ["imgpdf/Capa.png", "imgpdf/Pag2.png", "imgpdf/Pag3.png", "imgpdf/Pag4.png", "imgpdf/Pag5.png",
+    "imgpdf/Pag6.png",
+    "imgpdf/Pag7.png",
+    "imgpdf/Pag8.png",
+    "imgpdf/Pag9.png",
+    "imgpdf/Pag10.png",
+    "imgpdf/Pag11.png",
+    "imgpdf/Pag12.png",
+    "imgpdf/Pag13.png",
+    "imgpdf/Pag14.png",
+    "imgpdf/Pag15.png",
+    "imgpdf/Pag16.png",
+    "imgpdf/Pag17.png",
+    "imgpdf/Pag18.png",
+    "imgpdf/Pag19.png",
+    "imgpdf/Pag20.png",
+    "imgpdf/Pag21.png",
+    "imgpdf/Pag22.png",
+    "imgpdf/Pag23.png",
+    "imgpdf/Pag24.png",
+    "imgpdf/Pag25.png",
+    "imgpdf/Pag26.png",
+    "imgpdf/Pag27.png",
+    "imgpdf/Final.png"];
+
+    let indiceAtual = 0;
+        const imagem = document.querySelector(".imagem");
+        const botaoAnterior = document.getElementById("anterior");
+        const botaoProximo = document.getElementById("proximo");
+        const inputPagina = document.getElementById("numeroPagina");
+        const botaoIrParaPagina = document.getElementById("irParaPagina");
+
+        function atualizarImagem() {
+            imagem.src = imagens[indiceAtual];
+            inputPagina.value = indiceAtual + 1;
+        }
+
+        botaoAnterior.addEventListener("click", () => {
+            indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length;
+            atualizarImagem();
+        });
+
+        botaoProximo.addEventListener("click", () => {
+            indiceAtual = (indiceAtual + 1) % imagens.length;
+            atualizarImagem();
+        });
+
+        botaoIrParaPagina.addEventListener("click", () => {
+            const novaPagina = parseInt(inputPagina.value, 10);
+            if (novaPagina >= 1 && novaPagina <= imagens.length) {
+                indiceAtual = novaPagina - 1;
+                atualizarImagem();
+            }
+        });
+
+        // Adiciona um listener para eventos de pressionamento de tecla
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") { // Tecla da seta esquerda
+                indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length;
+                atualizarImagem();
+            } else if (event.key === "ArrowRight") { // Tecla da seta direita
+                indiceAtual = (indiceAtual + 1) % imagens.length;
+                atualizarImagem();
+            }
+        });
+
+        atualizarImagem();
+
+      // Função para criar flocos de neve individuais
+      function createSnowflake() {
+            const snowflake = document.createElement("div");
+            snowflake.className = "snowflake";
+            snowflake.style.left = Math.random() * 100 + "vw"; /* Posição horizontal aleatória */
+            // Use diferentes durações de animação para cada floco
+            snowflake.style.animation = `snowfall ${(Math.random() * 4 + 2).toFixed(1)}s linear infinite`;
+            document.querySelector(".snow-container").appendChild(snowflake);
+
+            // Remover a div de neve após a animação
+            snowflake.addEventListener("animationend", () => {
+                snowflake.remove();
+                createSnowflake(); // Crie um novo floco após a remoção
+            });
+        }
+
+        // Crie vários flocos de neve
+        for (let i = 1; i <= 10; i++) {
+            createSnowflake();
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Ficha Ninja</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="/">Logo</a>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">Pdf</a></li>
+                <li><a href="/">Ficha</a></li>    
+                <li><a href="/">Batalha</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Ficha Ninja</h1>
+
+    <!--LOCAL DE SELEÇÂO DE IMAGEM DE PERFIL-->
+    <div class="image-container">
+        <div class="image-circle" id="selected-image">
+            <img src="Imagens/imagem1.jpg" alt="Imagem 1" id="image" />
+        </div>
+    </div>
+    <div class="image-select">
+        <select id="image-select" name="image-select" onchange="changeImage()">
+            <option value="Imagens/imagem1.jpg">Kai</option>
+            <option value="imagem2.jpg">Ray</option>
+            <option value="imagem3.jpg">Zane</option>
+            <option value="imagem3.jpg">Cole</option>
+            <option value="imagem3.jpg">Lloyd</option>
+            <option value="imagem3.jpg">Nya</option>
+            <option value="imagem3.jpg">Samurai X</option>
+        </select>
+    </div>
+    <!--Containers preenchiveis de Nome, Classe Vida-->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <label for="campo1">Nome</label>
+                <input type="text" id="campo1" class="nome" name="campo1">
+            </div>
+            <div class="input-wrapper">
+                <label for="campo2">Classe</label>
+                <input type="text" id="campo2" class="classe" name="campo2" list="ninjas">
+                <datalist id="ninjas">
+                    <option value="Ninja do Fogo">
+                    <option value="Ninja do Raio">
+                    <option value="Ninja do Gelo">
+                    <option value="Ninja da Terra">
+                    <option value="Ninja Verde">
+                    <option value="Ninja d'água">
+                    <option value="Samurai">
+                </datalist>
+            </div>
+            <div class="input-wrapper">
+                <label for="campo3">Vida</label>
+                <input type="text" id="campo3" name="campo3" class="vida">
+            </div>
+        </div>
+
+    <section class="boxs">
+
+        <div class="atributos">
+            <div class="circulos2">
+                <div class="circle-container">
+                    <div class="circle">
+                        <span class="atk-label">FOR</span>
+                        <input type="text" class="circle-input" style="color: white;" value="8" inputmode="numeric" id="input1" name="input1" oninput="calcularResultado()" >
+                    </div>
+                    <div class="circle">
+                        <span class="atk-label">DEZ</span>
+                        <input type="text" class="circle-input" style="color: white;" value="8" inputmode="numeric" id="input2" name="input2" oninput="calcularResultado()">
+                    </div>
+                    <div class="circle">
+                        <span class="atk-label">CON</span>
+                        <input type="text" class="circle-input" style="color: white;" value="8" inputmode="numeric" id="input3" name="input3" oninput="calcularResultado()">
+                    </div>
+                    <div class="circle">
+                        <span class="atk-label">INT</span>
+                        <input type="text" class="circle-input" style="color: white;" value="8" inputmode="numeric" id="input4" name="input4" oninput="calcularResultado()">
+                    </div>
+                    <div class="circle">
+                        <span class="atk-label">SAB</span>
+                        <input type="text" class="circle-input"  style="color: white;" value="8" inputmode="numeric" id="input5" name="input5" oninput="calcularResultado()">
+                    </div>
+                    <div class="circle">
+                        <span class="atk-label">CAR</span>
+                        <input type="text" class="circle-input" style="color: white;" value="8" inputmode="numeric" id="input6" name="input6" oninput="calcularResultado()">
+                    </div>
+                </div>   
+                <!--CONTAINERS DOS MODIFICADORES-->
+                <div class="circle-column">
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" style="font-weight: bold;" inputmode="numeric" id="input7"  readonly>
+                    </div>
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" style="font-weight: bold;" inputmode="numeric" id="input8"  readonly>
+                    </div>
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" style="font-weight: bold;" inputmode="numeric" id="input9"  readonly>
+                    </div>
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" style="font-weight: bold;" inputmode="numeric" id="input10"  readonly>
+                    </div>
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" style="font-weight: bold;" inputmode="numeric" id="input11"  readonly>
+                    </div>
+                    <div class="circle">
+                        <input type="text" class="circle-input-second" style="font-weight: bold;" inputmode="numeric" id="input12"  readonly>
+                    </div>
+                </div>
+            </div>
+
+                <div class="classes">
+                    <p style="font-family: 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold; color: white;">Subclasse</p>
+                    <input type="text" name="class" id="class" list="subclasse">
+                        <datalist id="subclasse">
+                            <option value="Nindroide">
+                            <option value="Treinador de Dragões">
+                            <option value="Mestre das Armas">
+                            <option value="Oni">
+                        </datalist>
+                    <div class="square3" id="square3" style="color: white; padding: 20px 20px 5px 20px; font-size: 20px; font-weight: 500;" ></div>
+                </div>
+
+                <div class="rolagem">
+                    <div class="dados">
+                        <div class="dados2">
+                            <button id="salvar-tudo">Salvar Tudo</button>
+                            <div>
+                            <h1 class="rolagemd">Rolar Dados</h1>
+                            </div>
+                            <div>
+                            <select id="tipo-dado">
+                                <option value="d4">1d4</option>
+                                <option value="d6">1d6</option>
+                                <option value="d10">1d10</option>
+                                <option value="d12">1d12</option>
+                                <option value="d20">1d20</option>
+                                <option value="d100">1d100</option>
+                            </select>
+                            </div>
+                            <div>
+                            <label for="modificador" class="modificador">Modificador:</label>
+                            </div>
+                            <input type="number" id="modificador" value="0" class="resultados">
+                        </div>
+                            <div>
+                            <button id="rolar" class="rolardado">Rolar Dados</button>
+                            </div>
+                            <div>
+                            <div id="resultado"></div>
+                            </div>
+                    </div>
+                </div>
+            
+        </div>
+
+        <div class="quadrado-grande">
+            <div class="quadradop1">
+                <div class="bases">
+                    <p style="font-family: 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold;">Controle Elemental</p>
+                    <div class="square" id="controle"></div>
+                </div>
+                <div class="bases">
+                    <p style="font-family: 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold;">Habilidades</p>
+                    <div class="square" id="retangulo"></div>
+                </div>
+            </div> 
+            <div class="quadradop2"> 
+                <div class="bases">
+                    <p style="font-family: 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold;">Dragão</p>
+                    <div class="square" id="dragao"  style="display: flex; flex-direction: column; justify-content: center; align-items: center"></div>
+                </div>
+                <div class="bases">
+                    <p style="font-family: 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold;">Spinjitzu</p>
+                    <div class="square" id="spinjitzu"></div>
+                </div>
+            </div>     
+            <div class="quadradop3">    
+                <div class="bases">
+                    <p style="font-family: 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold;">Talentos</p>
+                    <div class="square2" id="talento"> 
+                        <div class="squarett">                  
+                        <input type="text" id="talentos" name="talentos" list="talentos1">
+                            <datalist id="talentos1">
+                                <option value="Sortudo">
+                                <option value="Velocista">
+                                <option value="Combo Ninja">
+                                <option value="Mestre Elemental">
+                                <option value="Rei do Spinjitzu">
+                                <option value="Mestre de Armas">
+                                <option value="Domador de Feras">
+                                <option value="Ninja de Verdade">
+                                <option value="Aluno Exemplar">
+                                <option value="Força Bruta">
+                                <option value="Empunhadura Dupla">
+                            </datalist>
+                            <div class="squaret" id="squaret1" style="display: flex; justify-content: center; align-items: center">
+                            </div>
+                        </div> 
+                        <div class="squarett"> 
+                        <input type="text" id="talentosd" name="talentosd" list="talentos2">
+                            <datalist id="talentos2">
+                                <option value="Sortudo">
+                                <option value="Velocista">
+                                <option value="Combo Ninja">
+                                <option value="Mestre Elemental">
+                                <option value="Rei do Spinjitzu">
+                                <option value="Mestre de Armas">
+                                <option value="Domador de Feras">
+                                <option value="Ninja de Verdade">
+                                <option value="Aluno Exemplar">
+                                <option value="Força Bruta">
+                                <option value="Empunhadura Dupla">
+                            </datalist>
+                            <div class="squaret" id="squaret2" style="display: flex; justify-content: center; align-items: center">
+                            </div>
+                        </div>
+                        <di class="squarett">
+                        <input type="text" id="talentosdd" name="talentosdd" list="talentos3">
+                            <datalist id="talentos3">
+                                <option value="Sortudo">
+                                <option value="Velocista">
+                                <option value="Combo Ninja">
+                                <option value="Mestre Elemental">
+                                <option value="Rei do Spinjitzu">
+                                <option value="Mestre de Armas">
+                                <option value="Domador de Feras">
+                                <option value="Ninja de Verdade">
+                                <option value="Aluno Exemplar">
+                                <option value="Força Bruta">
+                                <option value="Empunhadura Dupla">
+                            </datalist>
+                            <div class="squaret" id="squaret3" style="display: flex; justify-content: center; align-items: center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+<script>
+    function changeImage() {
+        var imageSelect = document.getElementById("image-select");
+        var selectedImage = document.getElementById("selected-image");
+        var image = document.getElementById("image");
+
+        var selectedOption = imageSelect.options[imageSelect.selectedIndex];
+        var selectedValue = selectedOption.value;
+
+        // Altera a imagem no círculo selecionado
+        image.src = selectedValue;
+    }
+
+    function calcularResultado() {
+    const inputs = document.querySelectorAll('.circle-input');
+    const results = document.querySelectorAll('.circle-input-second');
+
+    inputs.forEach((input, index) => {
+        const valor1 = parseInt(input.value);
+        const resultado = Math.floor((valor1 - 10) / 2);
+
+        results[index].value = resultado;
+
+        // Definir a cor do texto com base no valor do resultado
+        if (resultado < 0) {
+            results[index].style.color = 'red';
+        } else if (resultado >= 0 && resultado <= 4) {
+            results[index].style.color = 'green';
+        } else {
+            results[index].style.color = 'gold';
+        }
+    });
+}
+
+// Calcular o resultado quando a página for carregada
+window.addEventListener('load', function () {
+    calcularResultado();
+});
+
+// Adicione um ouvinte de evento de entrada para recalcular quando os valores mudarem
+const inputs = document.querySelectorAll('.circle-input');
+inputs.forEach(input => {
+    input.addEventListener('input', calcularResultado);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const botaoRolar = document.getElementById("rolar");
+    const modificadorInput = document.getElementById("modificador");
+    const resultado = document.getElementById("resultado");
+    const tipoDadoSelect = document.getElementById("tipo-dado");
+
+    botaoRolar.addEventListener("click", function () {
+        const tipoDado = tipoDadoSelect.value; // Obtém o tipo de dado selecionado
+
+        // Função para rolar o dado selecionado
+        function rolarDado(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        let resultadoFinal = 0;
+
+        switch (tipoDado) {
+            case "d4":
+                resultadoFinal = rolarDado(1, 4);
+                break;
+            case "d6":
+                resultadoFinal = rolarDado(1, 6);
+                break;
+            case "d10":
+                resultadoFinal = rolarDado(1, 10);
+                break;
+            case "d12":
+                resultadoFinal = rolarDado(1, 12);
+                break;
+            case "d20":
+                resultadoFinal = rolarDado(1, 20);
+                break;
+            case "d100":
+                resultadoFinal = rolarDado(1, 100);
+                break;
+        }
+
+        // Obtenha o modificador do input
+        const modificador = parseInt(modificadorInput.value) || 0;
+
+        // Calcule a soma dos resultados com o modificador
+        resultadoFinal += modificador;
+
+        // Exiba o resultado
+        resultado.textContent = `Resultado: ${resultadoFinal}`;
+    });
+});
+
+// Selecione o campo de entrada "Classe" e a div "retangulo"
+const classeInput = document.getElementById("campo2");
+const retanguloDiv = document.getElementById("retangulo"); // Alterado para usar getElementById
+
+// Defina um ouvinte de evento para o campo "Classe"
+classeInput.addEventListener("input", function () {
+    // Obtenha o valor selecionado no campo "Classe"
+    const classeSelecionada = classeInput.value;
+
+    // Atualize o conteúdo da div "retangulo" com base na classe selecionada
+    switch (classeSelecionada) {
+        case "Ninja do Fogo":
+            retanguloDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none;'><b>Espadachim:</b> +2 em rolagens de ataques com espada.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Ninja do Fogo:</b> Recebe metade do dano de ataques de fogo.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Ferreiro:</b> +5 em rolagens de criação e restauração de equipamentos.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none;'><b>Alma Ardente:</b> +6 de dano quando estiver com metade da vida ou menos.</p>";
+            break;
+        case "Ninja do Raio":
+            retanguloDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none;'><b>Ninja:</b> +2 em rolagens de ataques com nunchaku.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Ninja do Raio:</b> Recebe metade do dano de ataques de raio.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Inventor:</b> +5 em rolagens de criação e restauração de máquinas.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none;'><b>Alma Eletrizante:</b> Cause metade do dano de seus ataques a inimigos próximos.</p>";
+            break;
+        case "Ninja do Gelo":
+            retanguloDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none;'><b>Espadachim:</b> +2 em rolagens de ataques com arco e shurikens.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Ninja do Gelo:</b> Recebe metade do dano de ataques de gelo.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Hacker:</b> +5 em rolagens com itens tecnológicos.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none;'><b>Alma Gelada:</b> Cause +3 de dano a cada ataque concecutivo que acertar.</p>";
+            break;
+        case "Ninja da Terra":
+            retanguloDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none;'><b>Guerreiro:</b> +2 em rolagens de ataques com martelo e foice.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Ninja do Terra:</b> Recebe metade do dano de ataques de terra.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Lutador:</b> +5 em rolagens de força física. </p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none;'><b>Alma Enrijecida:</b> Reduza seu dano sofrido pela metade quando estiver com metade da vida ou menos.</p>";
+            break;
+        case "Ninja Verde":
+            retanguloDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none;'><b>Habilidades Raras:</b> +2 em rolagens de ataques com qualquer arma.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Ninja Verde:</b> Recebe 1d10 + seu nível de dano a menos de qualquer elemento.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Sangue Oni:</b> +5 em rolagens quando estiver metade da vida ou menos. </p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none;'><b>Alma Verde:</b> Cause +3 de dano para cada aliado com você.</p>";
+            break;
+        case "Ninja d'água":
+            retanguloDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none;'><b>Guerreira:</b> +2 em rolagens de ataques com lanças e sais.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Ninja d'Água:</b> Recebe metade do dano de ataques de água.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Proativa:</b> +5 em rolagens de iniciativa. </p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none;'><b>Alma Molhada:</b> Recupere 5 pontos de vida para cada inimigo derrotado por você.</p>";
+            break;
+        case "Samurai":
+            retanguloDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none;'><b>Arte Samurai:</b> +2 em rolagens de ataques com armaduras tecnológicas.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Samurai:</b> Recebe 1d10 + seu nível de dano a menos de ataques não elementais.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none;'><b>Código de Justiça:</b> Sempre que derrotar um inimigo ganhe um ataque extra. </p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none;'><b>Alma Honrosa:</b> Cause +5 de dano para cada inimigo que foi derrotado nesta batalha.</p>";
+            break;
+        default:
+            retanguloDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none;'>Escolha uma classe para exibir informações.</p";
+            break;
+    }
+
+        // Defina o fundo da div "retangulo" como branco
+        retanguloDiv.style.backgroundColor = "#1d1e20";
+});
+
+ // Selecione o campo de entrada e a div de controle
+ const campoInput = document.getElementById("campo2");
+        const controleDiv = document.getElementById("controle");
+
+        // Defina um ouvinte de evento para o campo de entrada
+        campoInput.addEventListener("input", function () {
+            // Obtenha o valor selecionado no campo de entrada
+            const classeSelecionada = campoInput.value;
+
+            // Atualize o conteúdo da div de controle com base na classe selecionada
+            switch (classeSelecionada) {
+                case "Ninja do Fogo":
+                    controleDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Fogo:</b></p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 5:</b> Lança-chamas - Cause 1d8 + seu modificador de Força.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 9:</b> Bola de Fogo - Cause 1d12 + seu modificador de Força.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 13:</b> Tornado de Fogo - Cause 2d8 + seu modificador de Força.</p>";
+                    break;
+                case "Ninja do Raio":
+                    controleDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Raio:</b></p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 5:</b> Relâmpago - Cause 1d8 + seu modificador de Deztreza.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 9:</b> Faíscas - Cause 2d12 + seu modificador de Destreza.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 13:</b> Corrente Elétrica - Cause 2d8 + seu modificador de Destreza e paralise 2 alvos por 1 turno.</p>";
+                    break;
+                case "Ninja do Gelo":
+                    controleDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Gelo:</b></p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 5:</b> Chão de Gelo - Cause 1d8 + seu modificador de Inteligência.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 9:</b> Chão de gelo - Cause 1d12 + seu modificador de Inteligência.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 13:</b> Chuva de Granizo - Cause 8d4 + seu modificador de Inteliência a todos em sua volta.</p>";
+                    break;
+                case "Ninja da Terra":
+                    controleDiv.innerHTML = "<p style='font-size: 18px; padding: 20px 20px 5px 20px; background: none'><b>Terra:</b></p><p style='font-size: 18px; padding: 0px 20px 5px 20px; background: none'><b>Nível 5:</b> Arremesso de Rocha - Cause 1d8 + seu modificador de Constituição.</p><p style='font-size: 18px; padding: 0px 20px 5px 20px; background: none'><b>Nível 9:</b> Pilar de Pedra - Cause 1d12 + seu modificador de Constituição.</p><p style='font-size: 18px; padding: 0px 20px 0px 20px; background: none'><b>Nível 13:</b> Terremoto - Cause 1d20 + seu modificador de Constituição a todos em sua volta, eles devem fazer uma salvaguarda de CON CD12, caso falhem ficam no chão por 1 turno.</p>";
+                    break;
+                case "Ninja Verde":
+                    controleDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Energia:</b></p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 5:</b> Bola de Energia - Cause 1d8 + seu modificador de Carisma.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 9:</b> Chicote Verde - Cause 1d10 + seu modificador de Carisma a 2 alvos.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 13:</b> Rajada de Energia Verde - Cause 4d8 + seu modificador de Carisma.</p>";
+                    break;
+                case "Ninja d'água":
+                    controleDiv.innerHTML = "<p style='font-size: 18px; padding: 20px 20px 5px 20px; background: none'><b>Água:</b></p><p style='font-size: 18px; padding: 0px 20px 5px 20px; background: none'><b>Nível 5:</b> Bolha d'água - Cause 1d8 + seu modificador de Sabedoria.</p><p style='font-size: 18px; padding: 0px 20px 5px 20px; background: none'><b>Nível 9:</b> Serpente de Água - Cause 1d12 + seu modificador de Sabedoria.</p><p style='font-size: 18px; padding: 0px 20px 0px 20px; background: none'><b>Nível 13:</b> Tsunami - Cause 3d8 + seu modificador de Sabedoria a todos em sua volta, eles devem fazer uma salvaguarda de CON CD12, caso falhem ficam no chão por 1 turno.</p>";
+                    break;
+                case "Samurai":
+                    controleDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Código Samurai:</b></p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 5:</b> Espada Samurai - Cause 1d8 + seu modificador de Força.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 9:</b> Shurikens Samurai - Cause 6d4 + seu modificador de Força.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 13:</b> Corrente Ninja - Cause 1d12 e prenda o alvo por 1 turno ou puxe-o até você.</p>";
+                    break;
+                default:
+                    controleDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'>Escolha uma classe para exibir informações.</p>";
+                    break;
+
+                     // Defina o fundo da div "retangulo" como branco
+        controleDiv.style.backgroundColor = "#1d1e20";
+
+            }
+        });
+
+        // Selecione o campo de entrada e a div "dragao"
+        const dragaoInput = document.getElementById("campo2");
+        const dragaoDiv = document.getElementById("dragao");
+
+        // Defina um ouvinte de evento para o campo de entrada
+        campoInput.addEventListener("input", function () {
+            // Obtenha o valor selecionado no campo de entrada
+            const classeSelecionada = campoInput.value;
+
+            // Atualize o conteúdo da div "dragao" com base na classe selecionada
+            switch (classeSelecionada) {
+                case "Ninja do Fogo":
+                    dragaoDiv.innerHTML = "<p style='font-size: 25px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'><b>Dragão do Fogo:</b></p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'> Arranhão - 1d6.</p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Golpe de Cauda - 1d8.</p><p style='font-size: 25px; padding: 0px 20px 0px 20px; background: none; text-align:center; vertical-align: middle;'>Lança-chamas - 1d10.</p>";
+                    break;
+                case "Ninja do Raio":
+                    dragaoDiv.innerHTML = "<p style='font-size: 25px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'><b>Dragão do Raio:</b></p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'> Arranhão - 1d6.</p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Golpe de Cauda - 1d8.</p><p style='font-size: 25px; padding: 0px 20px 0px 20px; background: none; text-align:center; vertical-align: middle;'>Relâmpago - 1d10.</p>";
+                    break;
+                case "Ninja do Gelo":
+                    dragaoDiv.innerHTML = "<p style='font-size: 25px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'><b>Dragão do Gelo:</b></p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'> Arranhão - 1d6.</p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Golpe de Cauda - 1d8.</p><p style='font-size: 25px; padding: 0px 20px 0px 20px; background: none; text-align:center; vertical-align: middle;'>Estacas de Gelo - 1d10.</p>";
+                    break;
+                case "Ninja da Terra":
+                    dragaoDiv.innerHTML = "<p style='font-size: 25px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'><b>Dragão da Terra:</b></p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'> Arranhão - 1d6.</p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Golpe de Cauda - 1d8.</p><p style='font-size: 25px; padding: 0px 20px 0px 20px; background: none; text-align:center; vertical-align: middle;'>Ataques de Rochas - 1d10.</p>";
+                    break;
+                case "Ninja Verde":
+                    dragaoDiv.innerHTML = "<p style='font-size: 25px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'><b>Dragão da Energia:</b></p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'> Arranhão - 1d6.</p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Golpe de Cauda - 1d8.</p><p style='font-size: 25px; padding: 0px 20px 0px 20px; background: none; text-align:center; vertical-align: middle;'>Raio Verde - 1d10.</p>";
+                    break;
+                case "Ninja d'água":
+                    dragaoDiv.innerHTML = "<p style='font-size: 25px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'><b>Dragão da Água:</b></p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'> Arranhão - 1d6.</p><p style='font-size: 25px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Golpe de Cauda - 1d8.</p><p style='font-size: 25px; padding: 0px 20px 0px 20px; background: none; text-align:center; vertical-align: middle;'>Rajada d'Água - 1d10.</p>";
+                    break;
+                case "Samurai":
+                    dragaoDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'><b>Robô Samurai:</b></p><p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'><b>Nível 6:</b></p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'> Espada Samurai - 1d6.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Bomba Samurai - 1d10.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none; text-align:center; vertical-align: middle;'>Míssel - 2d8.</p><p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'><b>Nível 15:</b></p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'> Espada Samurai - 1d10.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Bomba Samurai - 1d12.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none; text-align:center; vertical-align: middle;'>Míssel - 4d8.</p>";
+                    break;
+                default:
+                    dragaoDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Escolha uma classe para exibir informações.</p>";
+                    break;
+
+                 // Defina o fundo da div "retangulo" como branco
+        dragaoDiv.style.backgroundColor = "#1d1e20";
+
+            }
+        });
+
+        // Selecione o campo de entrada e a div "spinjitzu"
+        const spinInput = document.getElementById("campo2");
+        const spinjitzuDiv = document.getElementById("spinjitzu");
+
+        // Defina um ouvinte de evento para o campo de entrada
+        campoInput.addEventListener("input", function () {
+            // Obtenha o valor selecionado no campo de entrada
+            const classeSelecionada = campoInput.value;
+
+            // Atualize o conteúdo da div "spinjitzu" com base na classe selecionada
+            switch (classeSelecionada) {
+                case "Ninja do Fogo":
+                    spinjitzuDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Nível 3:</b> Dobre o Número de dados na rolagem de ataque em que usar Spinjitzu.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 8:</b>Cause um dano extra igual seu nível + 2 (Isso é um dano elemental).</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 16:</b> Cause um dano extra igual seu nível + 2  e aumente em 1 o número de dados desse ataque (Isso é um dano elemental).</p>";
+                    break;
+                case "Ninja do Raio":
+                    spinjitzuDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Nível 3:</b> Dobre o Número de dados na rolagem de ataque em que usar Spinjitzu.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 8:</b>Cause 10 de dano a inimigos próximos (Isso é um dano elemental).</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 16:</b>Cause 10 de dano a inimigos próximos  e aumente em 1 o número de dados desse ataque (Isso é um dano elemental).</p>";
+                    break;
+                case "Ninja do Gelo":
+                    spinjitzuDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Nível 3:</b> Dobre o Número de dados na rolagem de ataque em que usar Spinjitzu.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 8:</b>Jogue 1d4 se não cair 1 o alvo congela por 1 turno (Isso é um dano elemental).</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 16:</b>Jogue 1d4 se não cair 1 o alvo congela por 1 turno  e aumente em 1 o número de dados desse ataque (Isso é um dano elemental).</p>";
+                    break;
+                case "Ninja da Terra":
+                    spinjitzuDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Nível 3:</b> Dobre o Número de dados na rolagem de ataque em que usar Spinjitzu.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 8:</b>Cause um dano extra igual a seu modificador de Força x2 (Isso é um dano elemental).</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 16:</b>Cause um dano extra igual a seu modificador de Força x2 e aumente em 1 o número de dados desse ataque (Isso é um dano elemental).</p>";
+                    break;
+                case "Ninja Verde":
+                    spinjitzuDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Nível 3:</b> Dobre o Número de dados na rolagem de ataque em que usar Spinjitzu.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 8:</b>Dobre o valor tirado nas rolagens de dano (Isso é um dano elemental).</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 16:</b>Dobre o valor tirado nas rolagens de dano e aumente em 1 o número de dados desse ataque (Isso é um dano elemental).</p>";
+                    break;
+                case "Ninja d'água":
+                    spinjitzuDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Nível 3:</b> Dobre o Número de dados na rolagem de ataque em que usar Spinjitzu.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 8:</b>Cure pontos de vida igual metade do dano causado (Isso é um dano elemental).</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 16:</b>Cure pontos de vida igual metade do dano causado  e aumente em 1 o número de dados desse ataque (Isso é um dano elemental).</p>";
+                    break;
+                case "Samurai":
+                    spinjitzuDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'><b>Nível 3:</b> Reduza o dano sofrido em -3 e aumente seu dano em +2.</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none'><b>Nível 8:</b>Reduza o dano sofrido em -6 e aumente seu dano em +4.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 11:</b>Reduza o dano sofrido em -9 e aumente seu dano em +6.</p><p style='font-size: 20px; padding: 0px 20px 0px 20px; background: none'><b>Nível 16:</b>Reduza o dano sofrido em -12 e aumente seu dano em +9.</p>";
+                    break;
+                default:
+                    spinjitzuDiv.innerHTML = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none'>Escolha uma classe para exibir informações.</p>";
+                    break;
+
+            // Defina o fundo da div "retangulo" como branco
+            spinjitzuDiv.style.backgroundColor = "#1d1e20";
+
+            }
+        });
+
+// Selecione o elemento de campo de entrada
+const talentosInput = document.getElementById("talentos");
+
+// Selecione a div que você deseja atualizar
+const squaret1Div = document.getElementById("squaret1");
+
+// Adicione um ouvinte de evento para detectar mudanças no campo de entrada
+talentosInput.addEventListener("input", function() {
+    // Obtenha o valor inserido no campo de entrada
+    const talentoSelecionado = talentosInput.value;
+
+    // Defina as diferentes respostas com base no talento selecionado
+    let resposta = "";
+
+    switch (talentoSelecionado) {
+        case "Sortudo":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>2 vezes por dia role um dado novamente e pegue o maior resultado</p>";
+            break;
+        case "Velocista":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +3 em Destreza e Iniciativa</p>";
+            break;
+        case "Combo Ninja":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Ao derrotar um oponente você pode atacar de novo</p>";
+            break;
+        case "Mestre Elemental":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente seu dano elemental em 3 + seu Nível</p>";
+            break;
+        case "Rei do Spinjitzu":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente em +1 o número de vezes que você pode usar Spinjitzu no dia</p>";
+            break;
+        case "Mestre de Armas":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Ganhe Proficiência com todas as armas e aumente um atributo em +1</p>";
+            break;
+        case "Domador de Feras":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +2 em Carisma e seu dragão pode fazer um ataque extra por batalha</p>";
+            break;
+        case "Ninja de Verdade":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +2 em Detreza e cause dano crítico em ataques furtivos</p>";
+            break;
+        case "Aluno Exemplar":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +1 em três atributos diferentes a sua escolha</p>";
+            break;
+        case "Força Bruta":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +2 em Força e ganhe 1 dado adicional em golpes desarmado.</p>";
+            break;
+        case "Empunhadura Dupla":
+            resposta = "<p style='font-size: 16px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Use duas espadas em combate, somando o valor de seus danos, porém diminua sua rolagem de ataque em -2</p>";
+            break;
+        default:
+            resposta = "<p style='font-size: 18px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Escolha uma opção de talento para exibir informações.</p>";
+            break;
+    }
+
+    // Atualize o conteúdo da div com base na resposta
+    squaret1Div.innerHTML = resposta;
+});
+
+// Selecione o elemento de campo de entrada
+const talentosdInput = document.getElementById("talentosd");
+
+// Selecione a div que você deseja atualizar
+const squaret2Div = document.getElementById("squaret2");
+
+// Adicione um ouvinte de evento para detectar mudanças no campo de entrada
+talentosdInput.addEventListener("input", function() {
+    // Obtenha o valor inserido no campo de entrada
+    const talentoSelecionado = talentosdInput.value;
+
+    // Defina as diferentes respostas com base no talento selecionado
+    let resposta = "";
+
+    switch (talentoSelecionado) {
+        case "Sortudo":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>2 vezes por dia role um dado novamente e pegue o maior resultado</p>";
+            break;
+        case "Velocista":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +3 em Destreza e Iniciativa</p>";
+            break;
+        case "Combo Ninja":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Ao derrotar um oponente você pode atacar de novo</p>";
+            break;
+        case "Mestre Elemental":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente seu dano elemental em 3 + seu Nível</p>";
+            break;
+        case "Rei do Spinjitzu":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente em +1 o número de vezes que você pode usar Spinjitzu no dia</p>";
+            break;
+        case "Mestre de Armas":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Ganhe Proficiência com todas as armas e aumente um atributo em +1</p>";
+            break;
+        case "Domador de Feras":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +2 em Carisma e seu dragão pode fazer um ataque extra por batalha</p>";
+            break;
+        case "Ninja de Verdade":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +2 em Detreza e cause dano crítico em ataques furtivos</p>";
+            break;
+        case "Aluno Exemplar":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +1 em três atributos diferentes a sua escolha</p>";
+            break;
+        case "Força Bruta":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +2 em Força e ganhe 1 dado adicional em golpes desarmado.</p>";
+            break;
+        case "Empunhadura Dupla":
+            resposta = "<p style='font-size: 16px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Use duas espadas em combate, somando o valor de seus danos, porém diminua sua rolagem de ataque em -2</p>";
+            break;
+        default:
+            resposta = "<p style='font-size: 18px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Escolha uma opção de talento para exibir informações.</p>";
+            break;
+    }
+
+    // Atualize o conteúdo da div com base na resposta
+    squaret2Div.innerHTML = resposta;
+});
+
+// Selecione o elemento de campo de entrada
+const talentosddInput = document.getElementById("talentosdd");
+
+// Selecione a div que você deseja atualizar
+const squaret3Div = document.getElementById("squaret3");
+
+// Adicione um ouvinte de evento para detectar mudanças no campo de entrada
+talentosddInput.addEventListener("input", function() {
+    // Obtenha o valor inserido no campo de entrada
+    const talentoSelecionado = talentosddInput.value;
+
+    // Defina as diferentes respostas com base no talento selecionado
+    let resposta = "";
+
+    switch (talentoSelecionado) {
+        case "Sortudo":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>2 vezes por dia role um dado novamente e pegue o maior resultado</p>";
+            break;
+        case "Velocista":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +3 em Destreza e Iniciativa</p>";
+            break;
+        case "Combo Ninja":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Ao derrotar um oponente você pode atacar de novo</p>";
+            break;
+        case "Mestre Elemental":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente seu dano elemental em 3 + seu Nível</p>";
+            break;
+        case "Rei do Spinjitzu":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente em +1 o número de vezes que você pode usar Spinjitzu no dia</p>";
+            break;
+        case "Mestre de Armas":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Ganhe Proficiência com todas as armas e aumente um atributo em +1</p>";
+            break;
+        case "Domador de Feras":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +2 em Carisma e seu dragão pode fazer um ataque extra por batalha</p>";
+            break;
+        case "Ninja de Verdade":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +2 em Detreza e cause dano crítico em ataques furtivos</p>";
+            break;
+        case "Aluno Exemplar":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +1 em três atributos diferentes a sua escolha</p>";
+            break;
+        case "Força Bruta":
+            resposta = "<p style='font-size: 20px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente +2 em Força e ganhe 1 dado adicional em golpes desarmado.</p>";
+            break;
+        case "Empunhadura Dupla":
+            resposta = "<p style='font-size: 16px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Use duas espadas em combate, somando o valor de seus danos, porém diminua sua rolagem de ataque em -2</p>";
+            break;
+        default:
+            resposta = "<p style='font-size: 18px; padding: 5px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Escolha uma opção de talento para exibir informações.</p>";
+            break;
+    }
+
+    // Atualize o conteúdo da div com base na resposta
+    squaret3Div.innerHTML = resposta;
+});
+
+        // Selecione o elemento de campo de entrada
+const classInput = document.getElementById("class");
+
+// Selecione a div que você deseja atualizar
+const square3Div = document.getElementById("square3");
+
+
+
+// Adicione um ouvinte de evento para detectar mudanças no campo de entrada
+classInput.addEventListener("input", function() {
+    // Obtenha o valor inserido no campo de entrada
+    const talentoSelecionado = classInput.value;
+
+    // Defina as diferentes respostas com base no talento selecionado
+    let resposta = "";
+
+            switch (talentoSelecionado) {
+                case "Nindroide":
+                    resposta = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Vantagem em testes de Inteligência, Sabedoria e Resistência;</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>+2 em inteligência, Sabedoria ou Destreza;</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Restaure toda sua vida no final de cada combate sem precisar fazer uma pausa para descanso;</p>";
+                    break;
+                case "Treinador de Dragões":
+                    resposta = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Vantagem em testes de Inteligência, Destreza e Carisma;</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>+2 em inteligência, Sabedoria ou Carisma;</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Aumente o dano dos ataques de seu dragão em +1 dadi. Você tem vantagem em domesticar dragões;</p>";
+                    break;
+                case "Mestre das Armas":
+                    resposta = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Vantagem em testes de Força, Destreza e Resistência;</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>+2 em Força, Sabedoria ou Destreza;</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Ganhe Proficiência em todas as armas e aumente seu dano com armas em 3+ seu nível dividido por 2 (arredonde para baixo);</p>";
+                    break;
+                case "Oni":
+                    resposta = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Vantagem em testes de Força, Constituição e Resistência;</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>+2 em Constituição e -2 em Carisma;</p><p style='font-size: 20px; padding: 0px 20px 5px 20px; background: none; text-align: center; vertical-align: middle;'>Ganhe um Stack de Ódio por turno, a cada 2 Stacks aumente seu dano em +3;</p>";
+                    break;
+                default:
+                    resposta = "<p style='font-size: 20px; padding: 20px 20px 5px 20px; background: none; text-align: center;vertical-align: middle;'>Escolha uma subclasse para exibir informações.</p>";
+                    break;
+            }
+
+            // Atualize o conteúdo da div com base na resposta
+    square3Div.innerHTML = resposta;
+
+        });
+
+        // Adicione um ouvinte de evento para detectar mudanças no campo de entrada
+classInput.addEventListener("input", function() {
+    // Obtenha o valor inserido no campo de entrada
+    const talentoSelecionado = classInput.value;
+    
+    // Chame a função para atualizar o conteúdo da div
+    atualizarConteudo(talentoSelecionado);
+});
+
+// Função para salvar os dados no localStorage
+function salvarDados() {
+    // IDs das divs que você deseja salvar
+    const divIds = ['square3', 'controle', 'retangulo', 'dragao', 'spinjitzu', 'squaret1', 'squaret2', 'squaret3'];
+
+    // IDs dos campos que você deseja salvar
+    const campoIds = ['imagem-select', 'campo1', 'campo2', 'campo3', 'class', 'talentos', 'talentosd', 'talentosdd'];
+
+    // Objeto para armazenar os conteúdos das divs
+    const divContents = {};
+
+    // Iterar sobre as divs e salvar seus conteúdos
+    divIds.forEach(divId => {
+        const divContent = document.getElementById(divId).innerHTML;
+        divContents[`${divId}Content`] = divContent;
+    });
+
+    // Objeto para armazenar os valores dos campos
+    const campoValues = {};
+
+    // Iterar sobre os campos e salvar seus valores
+    campoIds.forEach(campoId => {
+        const campoElement = document.getElementById(campoId);
+        if (campoElement) {
+            if (campoElement.tagName === 'SELECT') {
+                // Se for um campo de seleção (select)
+                campoValues[campoId] = campoElement.value;
+            } else {
+                // Se for um campo de entrada (input)
+                campoValues[campoId] = campoElement.value;
+            }
+        }
+    });
+
+    // Salvar os conteúdos das divs no localStorage
+    for (const key in divContents) {
+        localStorage.setItem(key, divContents[key]);
+    }
+
+    // Salvar os valores dos campos no localStorage
+    for (const key in campoValues) {
+        localStorage.setItem(key, campoValues[key]);
+    }
+}
+
+// Função para carregar os dados salvos do localStorage
+function carregarDados() {
+    // IDs das divs que você deseja carregar
+    const divIds = ['square3', 'controle', 'retangulo', 'dragao', 'spinjitzu', 'squaret1', 'squaret2', 'squaret3'];
+
+    // IDs dos campos que você deseja carregar
+    const campoIds = ['imagem-select', 'campo1', 'campo2', 'campo3', 'class', 'talentos', 'talentosd', 'talentosdd'];
+
+    // Iterar sobre as divs e carregar seus conteúdos
+    divIds.forEach(divId => {
+        const divContent = localStorage.getItem(`${divId}Content`);
+        if (divContent) {
+            document.getElementById(divId).innerHTML = divContent;
+        }
+    });
+
+    // Iterar sobre os campos e carregar seus valores
+    campoIds.forEach(campoId => {
+        const campoValue = localStorage.getItem(campoId);
+        if (campoValue) {
+            const campoElement = document.getElementById(campoId);
+            if (campoElement) {
+                if (campoElement.tagName === 'SELECT') {
+                    // Se for um campo de seleção (select)
+                    campoElement.value = campoValue;
+                } else {
+                    // Se for um campo de entrada (input)
+                    campoElement.value = campoValue;
+                }
+            }
+        }
+    });
+}
+
+// Chame a função para carregar os dados quando a página for carregada
+window.addEventListener('load', carregarDados);
+
+// Adicione um ouvinte de evento para o botão "Salvar Tudo"
+const salvarTudoButton = document.getElementById('salvar-tudo');
+if (salvarTudoButton) {
+    salvarTudoButton.addEventListener('click', salvarDados);
+}
+
+
+</script>
+
+</html>
